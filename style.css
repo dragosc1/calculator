@@ -1,3 +1,4 @@
+/* Root design */
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +6,8 @@
     font-weight: bold;
     color: rgb(58, 58, 58);
 }
+
+/* Calculator design */
 .container {
     border-right: 5px groove rgb(102, 102, 102);
     border-bottom: 5px solid rgb(72, 72, 72);
@@ -20,22 +23,16 @@
     font-size: 30px;
     background: gray;
 }
-.antet {
-    display: flex;
-    justify-content: space-between;
-    width: 400px;
-    align-items: center;
-}
-.ONCE, .design {
-    margin-bottom: 10px;
-}
+/* ON/CE button design */
 .ONCE {
     background: rgb(101, 218, 101);
     padding: 5px; 
     border-radius: 7px; 
     border-right: 3px solid rgb(87, 87, 87); 
     border-bottom: 3px solid rgb(87, 87, 87);
+    margin-bottom: 10px;
 }
+/* OFF button  design*/
 .OFF {
     background: rgb(255, 84, 84); 
     padding: 3px; border-radius: 7px; 
@@ -45,6 +42,7 @@
     display: flex;
     align-items: center;
 }
+/* Display screen design */
 .screen {
     height: 95px;
     width: 400px;
@@ -54,31 +52,19 @@
     margin-bottom: 17px;
     border: 2px solid rgb(110, 192, 192);
 }
+/* Button coloms design */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
 .firstcolum, .secondcolum, .thirdcolum, .fourthcolum {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
-.design {
-    width: 140px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 25px;
-    text-align: center;
-}
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 400px;
-}
-.add {
-    height: 110px;
-    display: flex;
-    align-items: center;
-}
+/* Buttons design */
 .zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine {
     background: white;
     padding: 5px;
@@ -105,6 +91,9 @@
     padding: 5px;
     width: 55px;
     border-radius: 5px;
+    height: 110px;
+    display: flex;
+    align-items: center;
     display: flex;
     justify-content: center;
     border-right: 3px solid rgb(87, 87, 87);
