@@ -2,10 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
 }
 .container {
-    border: 1px solid black;
-    width: 350px;
+    border-right: 5px groove rgb(102, 102, 102);
+    border-bottom: 5px solid rgb(72, 72, 72);
+    width: 390px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -15,16 +18,41 @@
     gap: 7px;
     border-radius: 20px;
     font-size: 30px;
+    background: gray;
+}
+.antet {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    align-items: center;
 }
 .ONCE, .design {
     margin-bottom: 10px;
 }
+.ONCE {
+    background: rgb(101, 218, 101);
+    padding: 5px; 
+    border-radius: 7px; 
+    border-right: 3px solid rgb(87, 87, 87); 
+    border-bottom: 3px solid rgb(87, 87, 87);
+}
+.OFF {
+    background: rgb(255, 84, 84); 
+    padding: 3px; border-radius: 7px; 
+    border-right: 3px solid rgb(87, 87, 87); 
+    border-bottom: 3px solid rgb(87, 87, 87);
+    height: 47.33px;
+    display: flex;
+    align-items: center;
+}
 .screen {
-    border: 1px solid black;
-    height: 80px;
+    height: 95px;
     width: 400px;
-    border-radius: 10px;
     margin-bottom: 6px;
+    background: cyan;
+    border-radius: 7px;
+    margin-bottom: 17px;
+    border: 2px solid rgb(110, 192, 192);
 }
 .firstcolum, .secondcolum, .thirdcolum, .fourthcolum {
     display: flex;
@@ -33,7 +61,7 @@
     gap: 20px;
 }
 .design {
-    width: 160px;
+    width: 140px;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -47,7 +75,48 @@
     width: 400px;
 }
 .add {
-    height: 80px;
+    height: 110px;
     display: flex;
     align-items: center;
+}
+.zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine {
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    border-right: 3px solid rgb(87, 87, 87);
+    border-bottom: 3px solid rgb(87, 87, 87);
+}
+.sqrt, .divide, .modulo, .times, .substract, .point {
+    background: rgb(189, 189, 189);
+    padding: 5px;
+    width: 55px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    border-right: 3px solid rgb(87, 87, 87);
+    border-bottom: 3px solid rgb(87, 87, 87);
+}
+
+.add {
+    background:cyan;
+    padding: 5px;
+    width: 55px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    border-right: 3px solid rgb(87, 87, 87);
+    border-bottom: 3px solid rgb(87, 87, 87);
+}
+.equal {
+    background:yellow;
+    padding: 5px;
+    width: 55px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    border-right: 3px solid rgb(87, 87, 87);
+    border-bottom: 3px solid rgb(87, 87, 87);
 }
