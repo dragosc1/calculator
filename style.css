@@ -9,7 +9,7 @@
 }
 /* Calculator design */
 .container {
-    border-right: 7px groove rgb(102, 102, 102);
+    border-right: 7px solid rgb(53, 53, 53);
     border-bottom: 7px solid rgb(72, 72, 72);
     width: 410px;
     display: flex;
