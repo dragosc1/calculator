@@ -184,5 +184,16 @@ op_sqrt.addEventListener('click', function(e) {
     ON_OPERATION = "sqrt";
     RESULT();
 });
+const point = document.querySelector('.point');
+point.addEventListener('click', function(e) {
+    if (!screen.innerHTML)
+       return;
+    let i, ok = 1;
+    for (i = 0; i < result.innerText.length; i++)
+        if (result.innerText[i] == '.')
+            ok = 0;
+    if (ok) 
+        result.innerText += '.';
+});
 const op_equal = document.querySelector('.equal');
 op_equal.addEventListener('click', RESULT);
