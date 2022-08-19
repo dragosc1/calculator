@@ -36,7 +36,7 @@ digits.forEach(digit => digit.addEventListener('click', function() {
     if (result.textContent == '0' && digit.value == 0)
         return;
     // Calculator allows only numbers that contains 6 digits
-    if (result.textContent.length == 6)
+    if (result.textContent.length == 12)
         return;
     // For multiple operations
     if (ON_OPERATION != '' && result.value == 1) {
@@ -57,34 +57,56 @@ var ON_OPERATION = '';
 function add(a, b) {
     a = Number(a);
     b = Number(b);
-    return a + b;
+    return (a + b).toFixed(4);
 }
 // substract a number from one
 function substract(a, b) {
     a = Number(a);
     b = Number(b);
-    return a - b;
+    return (a - b).toFixed(4);
 }
 // multiply numbers
 function times(a, b) {
-    return a * b;
+    a = Number(a);
+    b = Number(b);
+    return (a * b).toFixed(4);
 }
 // divide numbers
 function divide(a, b) {
     a = Number(a);
     b = Number(b);
-    return a / b;
+    return (a / b).toFixed(4);
 }
 // square root of a number
 function sqrt(a) {
     a = Number(a);
-    return Math.sqrt(a);
+    return Math.sqrt(a).toFixed(4);
 }
 // the rest of a / b
 function modulo(a, b) {
     a = Number(a);
     b = Number(b);
-    return a % b;
+    return (a % b).toFixed(4);
+}
+// Calculate the result
+function RESULT() {
+    if (!screen.innerHTML)
+        return;
+    if (ON_OPERATION == '')
+        return;
+    if (ON_OPERATION == 'add') 
+        result.innerText = `${add(last_result.innerText, result.innerText)}`;
+    else if (ON_OPERATION == 'substract') 
+        result.innerText = `${substract(last_result.innerText, result.innerText)}`;
+    else if (ON_OPERATION == 'times') 
+        result.innerText = `${times(last_result.innerText, result.innerText)}`;
+    else if (ON_OPERATION == 'divide') 
+        result.innerText = `${divide(last_result.innerText, result.innerText)}`;
+    else if (ON_OPERATION == 'modulo') 
+        result.innerText = `${modulo(last_result.innerText, result.innerText)}`;
+    else if (ON_OPERATION == 'sqrt') 
+        result.innerText = `${sqrt(result.innerText)}`;
+    ON_OPERATION = '';
 }
 const op_add = document.querySelector('.add');
 op_add.addEventListener('click', function(e) {
@@ -93,35 +115,74 @@ op_add.addEventListener('click', function(e) {
         return;
     if (ON_OPERATION != '') {
         document.querySelector(`.${ON_OPERATION}`).style.filter = '';
-        if (last_result) result.innerText = `${add(last_result.innerText, result.innerText)}`;
+        if (last_result && result.value == 0) RESULT();
     }
     last_result.innerText = result.innerText;
     ON_OPERATION = "add";
     e.target.style.filter = "brightness(75%)";
     result.value = 1;
 });
-const op_equal = document.querySelector('.equal');
-op_equal.addEventListener('click', function() {
+const op_substract = document.querySelector('.substract');
+op_substract.addEventListener('click', function(e) {
+    // If the calculator is not ON, STOP
     if (!screen.innerHTML)
         return;
-    if (ON_OPERATION == '')
-        return;
-    if (ON_OPERATION == 'add') {
-        const aux = document.createElement('h1');
-        aux.innerText = result.innerText;
-        result.innerText = `${add(last_result.innerText, result.innerText)}`;
-        last_result.innerText = aux.innerText;
+    if (ON_OPERATION != '') {
+        document.querySelector(`.${ON_OPERATION}`).style.filter = '';
+        if (last_result && result.value == 0) RESULT();
     }
-    else if (ON_OPERATION == 'times') {
-        const aux = document.createElement('h1');
-        aux.innerText = result.innerText;
-        result.innerText = `${times(last_result.innerText, result.innerText)}`;
-        last_result.innerText = aux.innerText;
-    }
-    else if (ON_OPERATION == 'divide') {
-        const aux = document.createElement('h1');
-        aux.innerText = result.innerText;
-        result.innerText = `${divide(last_result.innerText, result.innerText)}`;
-        last_result.innerText = aux.innerText;
-    }
+    last_result.innerText = result.innerText;
+    ON_OPERATION = "substract";
+    e.target.style.filter = "brightness(75%)";
+    result.value = 1;
 });
+const op_times = document.querySelector('.times');
+op_times.addEventListener('click', function(e) {
+     // If the calculator is not ON, STOP
+    if (!screen.innerHTML)
+        return;
+    if (ON_OPERATION != '') {
+        document.querySelector(`.${ON_OPERATION}`).style.filter = '';
+        if (last_result && result.value == 0) RESULT();
+    }
+    last_result.innerText = result.innerText;
+    ON_OPERATION = "times";
+    e.target.style.filter = "brightness(75%)";
+    result.value = 1;
+});
+const op_divide = document.querySelector('.divide');
+op_divide.addEventListener('click', function(e) {
+    // If the calculator is not ON, STOP
+    if (!screen.innerHTML)
+        return;
+    if (ON_OPERATION != '') {
+        document.querySelector(`.${ON_OPERATION}`).style.filter = '';
+        if (last_result && result.value == 0) RESULT();
+    }
+    last_result.innerText = result.innerText;
+    ON_OPERATION = "divide";
+    e.target.style.filter = "brightness(75%)";
+    result.value = 1;
+});
+const op_modulo = document.querySelector('.modulo');
+op_modulo.addEventListener('click', function(e) {
+    if (!screen.innerHTML)
+       return;
+    if (ON_OPERATION != '') {
+        document.querySelector(`.${ON_OPERATION}`).style.filter = '';
+        if (last_result && result.value == 0) RESULT();
+    }
+    last_result.innerText = result.innerText;
+    ON_OPERATION = "modulo";
+    e.target.style.filter = "brightness(75%)";
+    result.value = 1;
+});
+const op_sqrt = document.querySelector('.sqrt');
+op_sqrt.addEventListener('click', function(e) {
+    if (!screen.innerHTML)
+       return;
+    ON_OPERATION = "sqrt";
+    RESULT();
+});
+const op_equal = document.querySelector('.equal');
+op_equal.addEventListener('click', RESULT);
